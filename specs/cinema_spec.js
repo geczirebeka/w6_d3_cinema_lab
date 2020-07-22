@@ -40,7 +40,7 @@ describe('Cinema', function () {
   });
 
   it('should be able to filter films by genre', function () {
-    const actual = cinema.filterByGenre('drama');
+    const actual = cinema.findByProperty('genre', 'drama');
     const expected = [moonlight, trainspotting];
     assert.deepStrictEqual(actual, expected);
   });
@@ -64,6 +64,12 @@ describe('Cinema', function () {
   it('should be able to calculate total running time of all films', function () {
     const actual = cinema.totalRunningTime();
     assert.strictEqual(actual, 622);
+  });
+
+  it('should be able to find a film by property', function () {
+    const actual = cinema.findByProperty('year', 2017);
+    const expected = [bladeRunner, dunkirk, trainspotting];
+    assert.deepStrictEqual(actual, expected);
   });
 
 });
