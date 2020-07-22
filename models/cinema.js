@@ -25,5 +25,9 @@ Cinema.prototype.areFilmsLength = function (length) {
   return this.films.every(film => film.length >= length);
 }
 
+Cinema.prototype.totalRunningTime = function () {
+  return this.films.reduce((accumulator, film) => accumulator + film.length, 0);
+}
+
 
 module.exports = Cinema;
